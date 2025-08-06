@@ -36,26 +36,38 @@ All colors MUST be HSL.
     --input: 220 13% 91%;
     --ring: 142 71% 45%;
 
-    /* Custom design tokens */
-    --success: 142 71% 45%;
+    /* Custom design tokens - Ramp style */
+    --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
     
-    --warning: 38 92% 50%;
+    --warning: 43 96% 56%;
     --warning-foreground: 0 0% 100%;
     
-    --info: 217 91% 60%;
+    --info: 221 83% 53%;
     --info-foreground: 0 0% 100%;
     
-    --energy-primary: 142 71% 45%;
-    --energy-secondary: 197 37% 24%;
-    --energy-accent: 38 92% 50%;
+    --energy-primary: 142 76% 36%;
+    --energy-secondary: 221 39% 11%;
+    --energy-accent: 43 96% 56%;
     
-    --gradient-energy: linear-gradient(135deg, hsl(var(--energy-primary)), hsl(var(--energy-secondary)));
-    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(142 71% 35%));
+    /* Ramp-style gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%), hsl(142 76% 36%));
+    --gradient-hero: linear-gradient(135deg, hsl(221 39% 11%) 0%, hsl(142 76% 36%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 13% 97%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsla(220, 13%, 97%, 0.3), hsla(220, 13%, 97%, 0.1));
     
-    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-strong: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    /* Ramp-style shadows */
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    
+    /* Ramp-style glass effects */
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-backdrop: blur(12px);
 
     --radius: 0.5rem;
 
@@ -105,18 +117,18 @@ All colors MUST be HSL.
     --input: 210 24% 16%;
     --ring: 142 71% 45%;
 
-    --success: 142 71% 45%;
+    --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
     
-    --warning: 38 92% 50%;
+    --warning: 43 96% 56%;
     --warning-foreground: 0 0% 100%;
     
-    --info: 217 91% 60%;
+    --info: 221 83% 53%;
     --info-foreground: 0 0% 100%;
     
-    --energy-primary: 142 71% 45%;
-    --energy-secondary: 197 37% 24%;
-    --energy-accent: 38 92% 50%;
+    --energy-primary: 142 76% 36%;
+    --energy-secondary: 221 39% 11%;
+    --energy-accent: 43 96% 56%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -135,5 +147,14 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Ramp-style glass effects */
+  .glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-backdrop);
+    -webkit-backdrop-filter: var(--glass-backdrop);
   }
 }

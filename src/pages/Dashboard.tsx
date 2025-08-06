@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
+import AIInsightsPanel from "@/components/AIInsightsPanel";
+import AIForecastCard from "@/components/AIForecastCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -33,22 +35,22 @@ const Dashboard = () => {
     {
       id: 1,
       type: "warning",
-      message: "Votre contrat expire dans 60 jours",
-      action: "Voir les offres",
+      message: "Your contract expires in 60 days",
+      action: "View offers",
       actionLink: "/marketplace"
     },
     {
       id: 2,
       type: "info",
-      message: "Conso +15% cette semaine vs semaine dernière",
-      action: "Analyser",
+      message: "Consumption +15% this week vs last week",
+      action: "Analyze",
       actionLink: "#"
     },
     {
       id: 3,
       type: "success",
-      message: "Nouveau fournisseur disponible avec 20% d'économies",
-      action: "Comparer",
+      message: "New supplier available with 20% savings",
+      action: "Compare",
       actionLink: "/marketplace"
     }
   ];
@@ -81,18 +83,18 @@ const Dashboard = () => {
   ];
 
   const aiInsights = [
-    "Décaler la climatisation de 1h = 5% d'économie estimée",
-    "Pic de consommation détecté entre 14h-16h (coût élevé)",
-    "Météo chaude prévue : +12% de consommation attendue demain"
+    "Shift AC schedule by 1h = 5% estimated savings",
+    "Peak consumption detected 2-4pm (high cost period)",
+    "Hot weather forecast: +12% consumption expected tomorrow"
   ];
 
   return (
     <Layout>
-      <div className="space-y-6">
+      <div className="space-y-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Dashboard Énergie</h1>
+            <h1 className="text-4xl font-bold text-foreground">Energy Dashboard</h1>
             <p className="text-muted-foreground">BlueMart Retail - Store #1, New York</p>
           </div>
           
@@ -102,108 +104,115 @@ const Dashboard = () => {
               size="sm"
               onClick={() => setTimeRange("today")}
             >
-              Aujourd'hui
+              Today
             </Button>
             <Button
               variant={timeRange === "week" ? "default" : "outline"}
               size="sm"
               onClick={() => setTimeRange("week")}
             >
-              7 jours
+              7 days
             </Button>
             <Button
               variant={timeRange === "month" ? "default" : "outline"}
               size="sm"
               onClick={() => setTimeRange("month")}
             >
-              30 jours
+              30 days
             </Button>
           </div>
         </div>
 
-        {/* KPI Cards */}
+        {/* KPI Cards - Ramp style */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Consommation actuelle */}
-          <Card className="shadow-soft">
+          {/* Current consumption */}
+          <Card className="shadow-xl bg-gradient-card border-0 hover:shadow-2xl transition-all duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">
-                Consommation aujourd'hui
+                Today's Consumption
               </CardTitle>
-              <Zap className="h-4 w-4 text-energy-primary" />
+              <Zap className="h-5 w-5 text-energy-primary" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">{currentConsumption} kWh</div>
+              <div className="text-3xl font-bold text-foreground">{currentConsumption} kWh</div>
               <div className="flex items-center space-x-1 text-xs">
                 <TrendingUp className="h-3 w-3 text-warning" />
-                <span className="text-warning">+8% vs hier</span>
+                <span className="text-warning">+8% vs yesterday</span>
               </div>
             </CardContent>
           </Card>
 
-          {/* Coût actuel */}
-          <Card className="shadow-soft">
+          {/* Current cost */}
+          <Card className="shadow-xl bg-gradient-card border-0 hover:shadow-2xl transition-all duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">
-                Coût aujourd'hui
+                Today's Cost
               </CardTitle>
-              <DollarSign className="h-4 w-4 text-energy-accent" />
+              <DollarSign className="h-5 w-5 text-energy-accent" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">${currentCost}</div>
+              <div className="text-3xl font-bold text-foreground">${currentCost}</div>
               <div className="flex items-center space-x-1 text-xs">
                 <TrendingUp className="h-3 w-3 text-warning" />
-                <span className="text-warning">+12% vs hier</span>
+                <span className="text-warning">+12% vs yesterday</span>
               </div>
             </CardContent>
           </Card>
 
-          {/* Prévision facture */}
-          <Card className="shadow-soft">
+          {/* Bill forecast */}
+          <Card className="shadow-xl bg-gradient-card border-0 hover:shadow-2xl transition-all duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">
-                Prévision mois
+                Monthly Forecast
               </CardTitle>
-              <Calendar className="h-4 w-4 text-info" />
+              <Calendar className="h-5 w-5 text-info" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">${projectedBill}</div>
+              <div className="text-3xl font-bold text-foreground">${projectedBill}</div>
               <div className="flex items-center space-x-1 text-xs">
                 <TrendingUp className="h-3 w-3 text-warning" />
-                <span className="text-warning">+9% vs mois dernier</span>
+                <span className="text-warning">+9% vs last month</span>
               </div>
             </CardContent>
           </Card>
 
-          {/* Économies potentielles */}
-          <Card className="shadow-soft border-success/20 bg-success/5">
+          {/* Potential savings */}
+          <Card className="shadow-xl bg-gradient-subtle border-0 border-success/20 hover:shadow-2xl transition-all duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">
-                Économies possibles
+                Potential Savings
               </CardTitle>
-              <Target className="h-4 w-4 text-success" />
+              <Target className="h-5 w-5 text-success" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-success">${savings}/mois</div>
+              <div className="text-3xl font-bold text-success">${savings}/mo</div>
               <Link to="/marketplace">
                 <Button variant="link" size="sm" className="p-0 text-success h-auto">
-                  Voir les offres <ArrowRight className="ml-1 h-3 w-3" />
+                  View offers <ArrowRight className="ml-1 h-3 w-3" />
                 </Button>
               </Link>
             </CardContent>
           </Card>
         </div>
 
-        {/* Graphique consommation */}
-        <Card className="shadow-medium">
+        {/* AI Features Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <AIInsightsPanel />
+          <AIForecastCard />
+        </div>
+
+        {/* Consumption chart - Enhanced */}
+        <Card className="shadow-2xl bg-gradient-card border-0">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
-              <TrendingUp className="h-5 w-5 text-primary" />
-              <span>Consommation par heure - Aujourd'hui</span>
+              <TrendingUp className="h-6 w-6 text-primary" />
+              <span>Hourly Consumption - Today</span>
+              <Badge variant="secondary" className="ml-auto">Live Data</Badge>
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="h-64 w-full">
-              {/* Graphique simplifié avec divs */}
+            <div className="h-80 w-full p-4">
+              {/* Enhanced chart with better styling */}
               <div className="flex items-end justify-between h-full space-x-1">
                 {hourlyData.map((data, index) => {
                   const maxConsumption = Math.max(...hourlyData.map(d => d.consumption));
@@ -211,18 +220,20 @@ const Dashboard = () => {
                   const isHighCost = data.cost > 3.5;
                   
                   return (
-                    <div key={index} className="flex flex-col items-center flex-1">
-                      <div className="text-xs text-muted-foreground mb-1">
+                    <div key={index} className="flex flex-col items-center flex-1 group">
+                      <div className="text-xs text-muted-foreground mb-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         ${data.cost.toFixed(2)}
                       </div>
                       <div 
-                        className={`w-full rounded-t transition-all hover:opacity-80 ${
-                          isHighCost ? 'bg-warning' : 'bg-primary'
+                        className={`w-full rounded-t-lg transition-all hover:opacity-80 cursor-pointer ${
+                          isHighCost 
+                            ? 'bg-gradient-to-t from-warning to-warning/70 shadow-lg' 
+                            : 'bg-gradient-to-t from-primary to-primary/70 shadow-md'
                         }`}
                         style={{ height: `${height}%` }}
                         title={`${data.time}: ${data.consumption} kWh - $${data.cost}`}
                       />
-                      <div className="text-xs text-muted-foreground mt-1 -rotate-45 origin-center">
+                      <div className="text-xs text-muted-foreground mt-2 -rotate-45 origin-center">
                         {data.time}
                       </div>
                     </div>
@@ -230,86 +241,63 @@ const Dashboard = () => {
                 })}
               </div>
             </div>
-            <div className="mt-4 flex items-center justify-center space-x-4 text-sm">
+            <div className="mt-6 flex items-center justify-center space-x-6 text-sm">
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-primary rounded"></div>
-                <span>Consommation normale</span>
+                <div className="w-4 h-4 bg-gradient-to-r from-primary to-primary/70 rounded-sm"></div>
+                <span>Normal consumption</span>
               </div>
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-warning rounded"></div>
-                <span>Surcoût détecté</span>
+                <div className="w-4 h-4 bg-gradient-to-r from-warning to-warning/70 rounded-sm"></div>
+                <span>Peak pricing detected</span>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        {/* Insights IA et Alertes */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Insights IA */}
-          <Card className="shadow-medium">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <Brain className="h-5 w-5 text-info" />
-                <span>Suggestions IA</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {aiInsights.map((insight, index) => (
-                <div key={index} className="flex items-start space-x-3 p-3 bg-muted/30 rounded-lg">
-                  <div className="w-2 h-2 bg-info rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm text-foreground">{insight}</p>
-                </div>
-              ))}
-              <Button variant="outline" size="sm" className="w-full mt-4">
-                Voir plus de suggestions
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* Alertes */}
-          <Card className="shadow-medium">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <AlertTriangle className="h-5 w-5 text-warning" />
-                <span>Alertes actives</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {alerts.map((alert) => (
-                <Alert key={alert.id} className={`
-                  ${alert.type === 'warning' ? 'border-warning/20 bg-warning/5' : ''}
-                  ${alert.type === 'info' ? 'border-info/20 bg-info/5' : ''}
-                  ${alert.type === 'success' ? 'border-success/20 bg-success/5' : ''}
-                `}>
-                  <AlertDescription className="flex items-center justify-between">
-                    <span className="text-sm">{alert.message}</span>
-                    <Link to={alert.actionLink}>
-                      <Button variant="link" size="sm" className="p-0 h-auto">
-                        {alert.action}
-                      </Button>
-                    </Link>
-                  </AlertDescription>
-                </Alert>
-              ))}
-            </CardContent>
-          </Card>
-        </div>
+        {/* Alerts section - Enhanced */}
+        <Card className="shadow-xl bg-gradient-card border-0">
+          <CardHeader>
+            <CardTitle className="flex items-center space-x-2">
+              <AlertTriangle className="h-6 w-6 text-warning" />
+              <span>Active Alerts</span>
+              <Badge variant="outline" className="ml-auto">{alerts.length}</Badge>
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            {alerts.map((alert) => (
+              <Alert key={alert.id} className={`
+                ${alert.type === 'warning' ? 'border-warning/20 bg-warning/5' : ''}
+                ${alert.type === 'info' ? 'border-info/20 bg-info/5' : ''}
+                ${alert.type === 'success' ? 'border-success/20 bg-success/5' : ''}
+              `}>
+                <AlertDescription className="flex items-center justify-between">
+                  <span className="text-sm">{alert.message}</span>
+                  <Link to={alert.actionLink}>
+                    <Button variant="link" size="sm" className="p-0 h-auto">
+                      {alert.action}
+                    </Button>
+                  </Link>
+                </AlertDescription>
+              </Alert>
+            ))}
+          </CardContent>
+        </Card>
 
         {/* CTA Marketplace */}
-        <Card className="shadow-medium bg-gradient-energy">
-          <CardContent className="p-6">
+        <Card className="shadow-xl bg-gradient-hero border-0">
+          <CardContent className="p-8">
             <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
               <div className="text-center sm:text-left">
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Prêt à économiser $315/mois ?
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  Ready to save $315/month?
                 </h3>
                 <p className="text-white/90">
-                  Comparez les offres de nos partenaires et changez en 1 clic
+                  Compare offers from our partners and switch in 1 click
                 </p>
               </div>
               <Link to="/marketplace">
-                <Button variant="secondary" size="lg">
-                  Comparer les offres
+                <Button variant="secondary" size="lg" className="shadow-lg">
+                  Compare Offers
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -317,31 +305,31 @@ const Dashboard = () => {
           </CardContent>
         </Card>
 
-        {/* Benchmark sectoriel */}
-        <Card className="shadow-soft">
+        {/* Industry Benchmark */}
+        <Card className="shadow-xl bg-gradient-card border-0">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
-              <Leaf className="h-5 w-5 text-success" />
-              <span>Benchmark sectoriel</span>
+              <Leaf className="h-6 w-6 text-success" />
+              <span>Industry Benchmark</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-warning mb-1">+8%</div>
-                <div className="text-sm text-muted-foreground">vs moyenne retail NY</div>
+                <div className="text-3xl font-bold text-warning mb-2">+8%</div>
+                <div className="text-sm text-muted-foreground">vs retail avg NY</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-success mb-1">85%</div>
-                <div className="text-sm text-muted-foreground">énergie renouvelable</div>
+                <div className="text-3xl font-bold text-success mb-2">85%</div>
+                <div className="text-sm text-muted-foreground">renewable energy</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-info mb-1">B+</div>
-                <div className="text-sm text-muted-foreground">score efficacité</div>
+                <div className="text-3xl font-bold text-info mb-2">B+</div>
+                <div className="text-sm text-muted-foreground">efficiency score</div>
               </div>
             </div>
-            <p className="text-sm text-muted-foreground mt-4 text-center">
-              Vous consommez 8% de plus que la moyenne des commerces similaires dans votre État (NAICS 44-45)
+            <p className="text-sm text-muted-foreground mt-6 text-center">
+              You consume 8% more than similar retail businesses in your state (NAICS 44-45)
             </p>
           </CardContent>
         </Card>

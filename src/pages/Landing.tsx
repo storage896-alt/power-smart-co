@@ -10,50 +10,51 @@ import {
   ArrowRight,
   Leaf,
   DollarSign,
-  Clock
+  Clock,
+  Brain
 } from "lucide-react";
 
 const Landing = () => {
   const features = [
     {
       icon: TrendingDown,
-      title: "Réduisez vos coûts",
-      description: "Économisez 10-20% sur votre facture d'énergie en moins de 15 minutes"
+      title: "Reduce Energy Costs",
+      description: "Save 10-20% on your energy bills in less than 15 minutes"
     },
     {
-      icon: BarChart3,
-      title: "Suivi en temps réel",
-      description: "Monitorer votre consommation avec des données toutes les 15 minutes"
+      icon: Brain,
+      title: "AI-Powered Insights",
+      description: "Real-time consumption monitoring with predictive analytics"
     },
     {
       icon: Shield,
-      title: "Partenaires vérifiés",
-      description: "Accès aux meilleurs fournisseurs d'énergie américains"
+      title: "Verified Partners",
+      description: "Access to top-rated US energy suppliers"
     },
     {
       icon: Leaf,
-      title: "Énergie verte",
-      description: "Options 100% renouvelables pour votre entreprise"
+      title: "Green Energy",
+      description: "100% renewable energy options for your business"
     }
   ];
 
   const benefits = [
-    "Connexion directe via Green Button API",
-    "Import automatique des factures PDF",
-    "IA prédictive pour optimiser la consommation",
-    "Dashboard multi-sites pour les chaînes",
-    "Signature électronique intégrée",
-    "Support 24/7 pour les PME"
+    "Direct connection via Green Button API",
+    "Automatic PDF invoice import with OCR",
+    "Predictive AI for consumption optimization",
+    "Multi-site dashboard for retail chains",
+    "Integrated e-signature platform",
+    "24/7 support for SMBs"
   ];
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      {/* Navigation - Ramp style */}
+      <nav className="glass border-b border-border/50 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-energy rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-primary rounded-xl flex items-center justify-center shadow-lg">
                 <Zap className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-foreground">EnergySync</span>
@@ -61,73 +62,80 @@ const Landing = () => {
             
             <div className="flex items-center space-x-4">
               <Link to="/onboarding">
-                <Button variant="outline">Se connecter</Button>
+                <Button variant="outline">Sign In</Button>
               </Link>
               <Link to="/onboarding">
-                <Button>Essayer gratuitement</Button>
+                <Button>Try Free</Button>
               </Link>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            Réduisez votre facture d'énergie de{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-energy">
+      {/* Hero Section - Ramp style */}
+      <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-hero opacity-5"></div>
+        <div className="max-w-7xl mx-auto text-center relative">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-8 leading-tight">
+            Cut your energy costs by{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-primary">
               10-20%
             </span>
-            {" "}en moins de 15 minutes
+            {" "}in 15 minutes
           </h1>
           
-          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            La plateforme SaaS qui permet aux PME américaines d'acheter leur énergie 
-            via des partenaires vérifiés et de suivre leur consommation en temps réel avec l'IA.
+          <p className="text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
+            The AI-powered SaaS platform that helps US SMBs buy energy from verified partners 
+            and monitor consumption in real-time with predictive analytics.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Link to="/onboarding">
-              <Button size="lg" className="w-full sm:w-auto">
-                Commencer maintenant
+              <Button size="lg" className="w-full sm:w-auto shadow-lg">
+                Get Started Now
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
             <Link to="/dashboard">
               <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                Voir la démo
+                View Demo
               </Button>
             </Link>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-success mb-2">15 min</div>
-              <div className="text-muted-foreground">Setup complet</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-success mb-2">10-20%</div>
-              <div className="text-muted-foreground">Économies moyennes</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-success mb-2">500+</div>
-              <div className="text-muted-foreground">PME font confiance</div>
-            </div>
+          {/* Stats - Enhanced */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            <Card className="border-0 shadow-xl bg-gradient-card">
+              <CardContent className="p-6 text-center">
+                <div className="text-4xl font-bold text-primary mb-2">15 min</div>
+                <div className="text-muted-foreground">Complete setup</div>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-xl bg-gradient-card">
+              <CardContent className="p-6 text-center">
+                <div className="text-4xl font-bold text-success mb-2">10-20%</div>
+                <div className="text-muted-foreground">Average savings</div>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-xl bg-gradient-card">
+              <CardContent className="p-6 text-center">
+                <div className="text-4xl font-bold text-primary mb-2">500+</div>
+                <div className="text-muted-foreground">SMBs trust us</div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-20 bg-muted/30">
+      {/* Features - Ramp style */}
+      <section className="py-24 bg-gradient-subtle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Tout ce dont votre entreprise a besoin
+          <div className="text-center mb-20">
+            <h2 className="text-4xl font-bold text-foreground mb-6">
+              Everything your business needs
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Une solution complète pour optimiser vos coûts énergétiques
+            <p className="text-xl text-muted-foreground">
+              A complete solution to optimize your energy costs
             </p>
           </div>
 
@@ -135,12 +143,12 @@ const Landing = () => {
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card key={index} className="border-0 shadow-soft">
-                  <CardContent className="p-6 text-center">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-6 h-6 text-primary" />
+                <Card key={index} className="border-0 shadow-xl bg-gradient-card hover:shadow-2xl transition-all duration-300">
+                  <CardContent className="p-8 text-center">
+                    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                      <Icon className="w-8 h-8 text-primary" />
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">
+                    <h3 className="text-xl font-semibold text-foreground mb-3">
                       {feature.title}
                     </h3>
                     <p className="text-muted-foreground">
@@ -155,12 +163,12 @@ const Landing = () => {
       </section>
 
       {/* Benefits */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-foreground mb-6">
-                Pourquoi choisir EnergySync ?
+              <h2 className="text-4xl font-bold text-foreground mb-8">
+                Why choose EnergySync?
               </h2>
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -170,10 +178,10 @@ const Landing = () => {
                   </div>
                 ))}
               </div>
-              <div className="mt-8">
+              <div className="mt-10">
                 <Link to="/onboarding">
-                  <Button size="lg">
-                    Commencer maintenant
+                  <Button size="lg" className="shadow-lg">
+                    Get Started Now
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
@@ -181,42 +189,42 @@ const Landing = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <Card className="border-0 shadow-medium">
-                <CardContent className="p-6">
-                  <DollarSign className="w-8 h-8 text-success mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">Économies garanties</h3>
+              <Card className="border-0 shadow-xl bg-gradient-card hover:shadow-2xl transition-all duration-300">
+                <CardContent className="p-8">
+                  <DollarSign className="w-10 h-10 text-success mb-6" />
+                  <h3 className="text-xl font-semibold mb-3">Guaranteed Savings</h3>
                   <p className="text-muted-foreground">
-                    Réduction moyenne de 15% sur votre facture énergétique
+                    Average 15% reduction on your energy bills
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-0 shadow-medium">
-                <CardContent className="p-6">
-                  <Clock className="w-8 h-8 text-info mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">Setup rapide</h3>
+              <Card className="border-0 shadow-xl bg-gradient-card hover:shadow-2xl transition-all duration-300">
+                <CardContent className="p-8">
+                  <Clock className="w-10 h-10 text-info mb-6" />
+                  <h3 className="text-xl font-semibold mb-3">Quick Setup</h3>
                   <p className="text-muted-foreground">
-                    Connexion automatique via Green Button API
+                    Automatic connection via Green Button API
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-0 shadow-medium">
-                <CardContent className="p-6">
-                  <BarChart3 className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">Analytics avancées</h3>
+              <Card className="border-0 shadow-xl bg-gradient-card hover:shadow-2xl transition-all duration-300">
+                <CardContent className="p-8">
+                  <Brain className="w-10 h-10 text-primary mb-6" />
+                  <h3 className="text-xl font-semibold mb-3">AI Analytics</h3>
                   <p className="text-muted-foreground">
-                    Prédictions IA et alertes intelligentes
+                    Predictive insights and smart alerts
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-0 shadow-medium">
-                <CardContent className="p-6">
-                  <Leaf className="w-8 h-8 text-success mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">100% Vert</h3>
+              <Card className="border-0 shadow-xl bg-gradient-card hover:shadow-2xl transition-all duration-300">
+                <CardContent className="p-8">
+                  <Leaf className="w-10 h-10 text-success mb-6" />
+                  <h3 className="text-xl font-semibold mb-3">100% Green</h3>
                   <p className="text-muted-foreground">
-                    Options d'énergie 100% renouvelable disponibles
+                    100% renewable energy options available
                   </p>
                 </CardContent>
               </Card>
@@ -225,19 +233,19 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-energy">
+      {/* CTA Section - Ramp style */}
+      <section className="py-24 bg-gradient-hero">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Prêt à réduire vos coûts énergétiques ?
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Ready to cut your energy costs?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Rejoignez plus de 500 PME qui économisent déjà avec EnergySync
+          <p className="text-xl text-white/90 mb-10">
+            Join 500+ SMBs already saving with EnergySync's AI-powered platform
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/onboarding">
-              <Button size="lg" variant="secondary" className="w-full sm:w-auto">
-                Commencer gratuitement
+              <Button size="lg" variant="secondary" className="w-full sm:w-auto shadow-xl">
+                Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
@@ -246,17 +254,17 @@ const Landing = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-card border-t py-12">
+      <footer className="bg-card/50 backdrop-blur-sm border-t border-border/50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-energy rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-primary rounded-xl flex items-center justify-center shadow-lg">
                 <Zap className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-foreground">EnergySync</span>
             </div>
             <p className="text-muted-foreground">
-              © 2024 EnergySync. Tous droits réservés.
+              © 2024 EnergySync. All rights reserved.
             </p>
           </div>
         </div>
