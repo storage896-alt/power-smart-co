@@ -49,113 +49,171 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation - Ramp style */}
-      <nav className="glass border-b border-border/50 sticky top-0 z-50">
+      {/* Navigation - Pure Ramp style */}
+      <nav className="bg-white/95 backdrop-blur-lg border-b border-gray-200/50 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-primary rounded-xl flex items-center justify-center shadow-lg">
-                <Zap className="w-5 h-5 text-white" />
+            <div className="flex items-center space-x-8">
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-ramp-blue rounded-lg flex items-center justify-center">
+                  <Zap className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-xl font-bold text-gray-900">EnergySync</span>
               </div>
-              <span className="text-xl font-bold text-foreground">EnergySync</span>
+              
+              <div className="hidden md:flex items-center space-x-8">
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Products</a>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Solutions</a>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Customers</a>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Resources</a>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Pricing</a>
+              </div>
             </div>
             
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3">
               <Link to="/onboarding">
-                <Button variant="outline">Sign In</Button>
+                <button className="text-gray-600 hover:text-gray-900 text-sm font-medium px-4 py-2">
+                  Sign in
+                </button>
               </Link>
               <Link to="/onboarding">
-                <Button>Try Free</Button>
+                <button className="bg-ramp-yellow hover:bg-ramp-yellow/90 text-gray-900 font-medium px-4 py-2 rounded-lg transition-all duration-200">
+                  See a demo
+                </button>
               </Link>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section - Ramp style */}
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero opacity-5"></div>
-        <div className="max-w-7xl mx-auto text-center relative">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-8 leading-tight">
-            Cut your energy costs by{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-primary">
-              10-20%
-            </span>
-            {" "}in 15 minutes
-          </h1>
-          
-          <p className="text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-            The AI-powered SaaS platform that helps US SMBs buy energy from verified partners 
-            and monitor consumption in real-time with predictive analytics.
-          </p>
+      {/* Hero Section - Pure Ramp style */}
+      <section className="bg-gradient-to-br from-ramp-blue via-blue-800 to-ramp-blue relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='7' cy='7' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }} className="w-full h-full"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="text-left">
+              {/* Rating */}
+              <div className="flex items-center space-x-2 mb-8">
+                <div className="flex items-center space-x-1">
+                  {[...Array(5)].map((_, i) => (
+                    <div key={i} className="w-4 h-4 bg-ramp-yellow rounded-full"></div>
+                  ))}
+                </div>
+                <span className="text-white/90 text-sm">5 stars</span>
+                <span className="text-white/70 text-sm">2,000+ reviews</span>
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+                Time is money.{" "}
+                <span className="block">Save both.</span>
+              </h1>
+              
+              <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-lg">
+                Easy-to-use corporate cards, bill payments, accounting, and a whole lot more. All in one place.
+              </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Link to="/onboarding">
-              <Button size="lg" className="w-full sm:w-auto shadow-lg">
-                Get Started Now
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
-            <Link to="/dashboard">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                View Demo
-              </Button>
-            </Link>
-          </div>
-
-          {/* Stats - Enhanced */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            <Card className="border-0 shadow-xl bg-gradient-card">
-              <CardContent className="p-6 text-center">
-                <div className="text-4xl font-bold text-primary mb-2">15 min</div>
-                <div className="text-muted-foreground">Complete setup</div>
-              </CardContent>
-            </Card>
-            <Card className="border-0 shadow-xl bg-gradient-card">
-              <CardContent className="p-6 text-center">
-                <div className="text-4xl font-bold text-success mb-2">10-20%</div>
-                <div className="text-muted-foreground">Average savings</div>
-              </CardContent>
-            </Card>
-            <Card className="border-0 shadow-xl bg-gradient-card">
-              <CardContent className="p-6 text-center">
-                <div className="text-4xl font-bold text-primary mb-2">500+</div>
-                <div className="text-muted-foreground">SMBs trust us</div>
-              </CardContent>
-            </Card>
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <div className="flex">
+                  <input
+                    type="email"
+                    placeholder="What's your work email?"
+                    className="flex-1 px-4 py-3 text-gray-900 bg-white rounded-l-lg border-none focus:ring-2 focus:ring-ramp-yellow focus:outline-none min-w-80"
+                  />
+                  <button className="bg-ramp-yellow hover:bg-ramp-yellow/90 text-gray-900 font-medium px-6 py-3 rounded-r-lg transition-all duration-200">
+                    Get started for free
+                  </button>
+                </div>
+              </div>
+              
+              <Link to="/dashboard" className="text-white/90 hover:text-white font-medium inline-flex items-center">
+                Explore product <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
+            
+            {/* Product showcase */}
+            <div className="relative">
+              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-4 bg-white/20 rounded-lg">
+                    <span className="text-white font-medium">Energy Usage</span>
+                    <span className="text-ramp-green text-sm">-15%</span>
+                  </div>
+                  <div className="flex items-center justify-between p-4 bg-white/20 rounded-lg">
+                    <span className="text-white font-medium">Monthly Cost</span>
+                    <span className="text-white">$2,340</span>
+                  </div>
+                  <div className="flex items-center justify-between p-4 bg-white/20 rounded-lg">
+                    <span className="text-white font-medium">Savings</span>
+                    <span className="text-ramp-yellow">$420</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Features - Ramp style */}
-      <section className="py-24 bg-gradient-subtle">
+      {/* Customer logos - Ramp style */}
+      <section className="py-16 bg-gray-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl font-bold text-foreground mb-6">
-              Everything your business needs
+          <p className="text-center text-gray-600 mb-12">
+            40,000+ finance teams have saved millions of hours with EnergySync.
+          </p>
+          
+          {/* Moving logo strip */}
+          <div className="relative overflow-hidden">
+            <div className="flex space-x-12 items-center justify-center grayscale opacity-60">
+              <div className="text-2xl font-bold text-gray-400">STRIPE</div>
+              <div className="text-2xl font-bold text-gray-400">NOTION</div>
+              <div className="text-2xl font-bold text-gray-400">DISCORD</div>
+              <div className="text-2xl font-bold text-gray-400">WEBFLOW</div>
+              <div className="text-2xl font-bold text-gray-400">BARRY'S</div>
+              <div className="text-2xl font-bold text-gray-400">ZOLA</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product suite - Ramp style */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold text-ramp-blue mb-4">ENERGYSYNC PRODUCT SUITE</p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+              Get to know EnergySync
             </h2>
-            <p className="text-xl text-muted-foreground">
-              A complete solution to optimize your energy costs
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Replace multiple broken tools with EnergySync, the only platform designed to make your finance team faster—and happier.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card key={index} className="border-0 shadow-xl bg-gradient-card hover:shadow-2xl transition-all duration-300">
-                  <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                      <Icon className="w-8 h-8 text-primary" />
+                <div key={index} className="group cursor-pointer">
+                  <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-200 hover:border-ramp-blue/30">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-ramp-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-6 h-6 text-ramp-blue" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-ramp-blue transition-colors">
+                          {feature.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm">
+                          {feature.description}
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
-                      {feature.title}
-                    </h3>
-                    <p className="text-muted-foreground">
-                      {feature.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               );
             })}
           </div>

@@ -69,6 +69,12 @@ export default {
 					secondary: 'hsl(var(--energy-secondary))',
 					accent: 'hsl(var(--energy-accent))'
 				},
+				'ramp-blue': {
+					DEFAULT: 'hsl(var(--ramp-blue))',
+					light: 'hsl(var(--ramp-blue-light))'
+				},
+				'ramp-green': 'hsl(var(--ramp-green))',
+				'ramp-yellow': 'hsl(var(--ramp-yellow))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
