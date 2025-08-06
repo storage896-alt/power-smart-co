@@ -49,23 +49,23 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation - Pure Ramp style */}
+      {/* Navigation - Ramp UX structure with EnergySync branding */}
       <nav className="bg-white/95 backdrop-blur-lg border-b border-gray-200/50 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-ramp-blue rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
                   <Zap className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-xl font-bold text-gray-900">EnergySync</span>
               </div>
               
               <div className="hidden md:flex items-center space-x-8">
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Products</a>
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Solutions</a>
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Customers</a>
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Resources</a>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm font-medium">AI Copilot</a>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Energy Analytics</a>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Facilities</a>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Integrations</a>
                 <a href="#" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Pricing</a>
               </div>
             </div>
@@ -77,8 +77,8 @@ const Landing = () => {
                 </button>
               </Link>
               <Link to="/onboarding">
-                <button className="bg-ramp-yellow hover:bg-ramp-yellow/90 text-gray-900 font-medium px-4 py-2 rounded-lg transition-all duration-200">
-                  See a demo
+                <button className="bg-primary hover:bg-primary/90 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200">
+                  Try Free
                 </button>
               </Link>
             </div>
@@ -86,8 +86,8 @@ const Landing = () => {
         </div>
       </nav>
 
-      {/* Hero Section - Pure Ramp style */}
-      <section className="bg-gradient-to-br from-ramp-blue via-blue-800 to-ramp-blue relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Hero Section - Ramp structure with energy/AI focus */}
+      <section className="bg-gradient-to-br from-energy-secondary via-gray-900 to-energy-secondary relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-20">
           <div style={{
@@ -102,20 +102,20 @@ const Landing = () => {
               <div className="flex items-center space-x-2 mb-8">
                 <div className="flex items-center space-x-1">
                   {[...Array(5)].map((_, i) => (
-                    <div key={i} className="w-4 h-4 bg-ramp-yellow rounded-full"></div>
+                    <div key={i} className="w-4 h-4 bg-success rounded-full"></div>
                   ))}
                 </div>
                 <span className="text-white/90 text-sm">5 stars</span>
-                <span className="text-white/70 text-sm">2,000+ reviews</span>
+                <span className="text-white/70 text-sm">500+ facilities managers</span>
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
-                Time is money.{" "}
-                <span className="block">Save both.</span>
+                Plug-and-play energy{" "}
+                <span className="block">management platform.</span>
               </h1>
               
               <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-lg">
-                Easy-to-use corporate cards, bill payments, accounting, and a whole lot more. All in one place.
+                AI-powered SaaS tool for facilities managers to reduce energy costs by 10-20% with smart analytics and automated controls.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -123,34 +123,41 @@ const Landing = () => {
                   <input
                     type="email"
                     placeholder="What's your work email?"
-                    className="flex-1 px-4 py-3 text-gray-900 bg-white rounded-l-lg border-none focus:ring-2 focus:ring-ramp-yellow focus:outline-none min-w-80"
+                    className="flex-1 px-4 py-3 text-gray-900 bg-white rounded-l-lg border-none focus:ring-2 focus:ring-primary focus:outline-none min-w-80"
                   />
-                  <button className="bg-ramp-yellow hover:bg-ramp-yellow/90 text-gray-900 font-medium px-6 py-3 rounded-r-lg transition-all duration-200">
-                    Get started for free
+                  <button className="bg-primary hover:bg-primary/90 text-white font-medium px-6 py-3 rounded-r-lg transition-all duration-200">
+                    Start free trial
                   </button>
                 </div>
               </div>
               
               <Link to="/dashboard" className="text-white/90 hover:text-white font-medium inline-flex items-center">
-                Explore product <ArrowRight className="ml-2 w-4 h-4" />
+                Try AI Copilot demo <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </div>
             
-            {/* Product showcase */}
+            {/* AI Dashboard showcase */}
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between p-4 bg-white/20 rounded-lg">
-                    <span className="text-white font-medium">Energy Usage</span>
-                    <span className="text-ramp-green text-sm">-15%</span>
+                    <div className="flex items-center space-x-2">
+                      <Brain className="w-4 h-4 text-success" />
+                      <span className="text-white font-medium">AI Insights</span>
+                    </div>
+                    <span className="text-success text-sm">Active</span>
+                  </div>
+                  <div className="flex items-center justify-between p-4 bg-white/20 rounded-lg">
+                    <span className="text-white font-medium">Energy Savings</span>
+                    <span className="text-success">-18.4%</span>
                   </div>
                   <div className="flex items-center justify-between p-4 bg-white/20 rounded-lg">
                     <span className="text-white font-medium">Monthly Cost</span>
-                    <span className="text-white">$2,340</span>
+                    <span className="text-white">$8,240</span>
                   </div>
                   <div className="flex items-center justify-between p-4 bg-white/20 rounded-lg">
-                    <span className="text-white font-medium">Savings</span>
-                    <span className="text-ramp-yellow">$420</span>
+                    <span className="text-white font-medium">Predicted Savings</span>
+                    <span className="text-warning">$1,520</span>
                   </div>
                 </div>
               </div>
@@ -159,37 +166,37 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Customer logos - Ramp style */}
+      {/* Customer logos - Energy industry focus */}
       <section className="py-16 bg-gray-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-gray-600 mb-12">
-            40,000+ finance teams have saved millions of hours with EnergySync.
+            500+ facilities managers have saved millions with EnergySync's AI-powered platform.
           </p>
           
           {/* Moving logo strip */}
           <div className="relative overflow-hidden">
             <div className="flex space-x-12 items-center justify-center grayscale opacity-60">
-              <div className="text-2xl font-bold text-gray-400">STRIPE</div>
-              <div className="text-2xl font-bold text-gray-400">NOTION</div>
-              <div className="text-2xl font-bold text-gray-400">DISCORD</div>
-              <div className="text-2xl font-bold text-gray-400">WEBFLOW</div>
-              <div className="text-2xl font-bold text-gray-400">BARRY'S</div>
-              <div className="text-2xl font-bold text-gray-400">ZOLA</div>
+              <div className="text-2xl font-bold text-gray-400">TESLA</div>
+              <div className="text-2xl font-bold text-gray-400">IKEA</div>
+              <div className="text-2xl font-bold text-gray-400">WALMART</div>
+              <div className="text-2xl font-bold text-gray-400">GOOGLE</div>
+              <div className="text-2xl font-bold text-gray-400">AMAZON</div>
+              <div className="text-2xl font-bold text-gray-400">MICROSOFT</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Product suite - Ramp style */}
+      {/* Product suite - Energy management focus */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold text-ramp-blue mb-4">ENERGYSYNC PRODUCT SUITE</p>
+            <p className="text-sm font-semibold text-primary mb-4">ENERGYSYNC AI PLATFORM</p>
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Get to know EnergySync
+              Complete energy management solution
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Replace multiple broken tools with EnergySync, the only platform designed to make your finance team faster—and happier.
+              Replace manual processes with EnergySync's AI copilot - designed specifically for facilities managers to optimize energy costs automatically.
             </p>
           </div>
 
@@ -198,13 +205,13 @@ const Landing = () => {
               const Icon = feature.icon;
               return (
                 <div key={index} className="group cursor-pointer">
-                  <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-200 hover:border-ramp-blue/30">
+                  <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-200 hover:border-primary/30">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-ramp-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-6 h-6 text-ramp-blue" />
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-ramp-blue transition-colors">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">
                           {feature.title}
                         </h3>
                         <p className="text-gray-600 text-sm">
