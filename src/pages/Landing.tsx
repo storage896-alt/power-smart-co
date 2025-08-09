@@ -87,76 +87,63 @@ const Landing = () => {
       </nav>
 
       {/* Hero Section - Ramp structure with energy/AI focus */}
-      <section className="bg-gradient-to-br from-energy-secondary via-gray-900 to-energy-secondary relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <div style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='7' cy='7' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} className="w-full h-full"></div>
-        </div>
+      <section className="bg-gradient-subtle relative py-24 px-4 sm:px-6 lg:px-8">
         
         <div className="max-w-7xl mx-auto relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
-              {/* Rating */}
-              <div className="flex items-center space-x-2 mb-8">
-                <div className="flex items-center space-x-1">
-                  {[...Array(5)].map((_, i) => (
-                    <div key={i} className="w-4 h-4 bg-success rounded-full"></div>
-                  ))}
-                </div>
-                <span className="text-white/90 text-sm">5 stars</span>
-                <span className="text-white/70 text-sm">500+ facilities managers</span>
+              <div className="inline-flex items-center rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground mb-6">
+                AI Copilot for Facilities
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-8 leading-tight">
                 Plug-and-play energy{" "}
                 <span className="block">management platform.</span>
               </h1>
               
-              <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-lg">
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
                 AI-powered SaaS tool for facilities managers to reduce energy costs by 10-20% with smart analytics and automated controls.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <div className="flex">
+              <div className="flex flex-col sm:flex-row gap-3 mb-6">
+                <div className="flex w-full sm:w-auto">
                   <input
                     type="email"
                     placeholder="What's your work email?"
-                    className="flex-1 px-4 py-3 text-gray-900 bg-white rounded-l-lg border-none focus:ring-2 focus:ring-primary focus:outline-none min-w-80"
+                    className="flex-1 px-4 py-3 rounded-l-lg bg-background border border-input text-foreground focus:ring-2 focus:ring-primary focus:outline-none min-w-72"
                   />
-                  <button className="bg-primary hover:bg-primary/90 text-white font-medium px-6 py-3 rounded-r-lg transition-all duration-200">
+                  <button className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-5 py-3 rounded-r-lg transition-all duration-200">
                     Start free trial
                   </button>
                 </div>
               </div>
               
-              <Link to="/dashboard" className="text-white/90 hover:text-white font-medium inline-flex items-center">
+              <Link to="/dashboard" className="text-foreground hover:text-primary font-medium inline-flex items-center">
                 Try AI Copilot demo <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </div>
             
             {/* AI Dashboard showcase */}
             <div className="relative">
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+              <div className="rounded-2xl p-8 border border-border bg-card shadow-lg">
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-white/20 rounded-lg">
+                  <div className="flex items-center justify-between p-4 rounded-lg border border-border bg-background">
                     <div className="flex items-center space-x-2">
-                      <Brain className="w-4 h-4 text-success" />
-                      <span className="text-white font-medium">AI Insights</span>
+                      <Brain className="w-4 h-4 text-primary" />
+                      <span className="font-medium text-foreground">AI Insights</span>
                     </div>
                     <span className="text-success text-sm">Active</span>
                   </div>
-                  <div className="flex items-center justify-between p-4 bg-white/20 rounded-lg">
-                    <span className="text-white font-medium">Energy Savings</span>
+                  <div className="flex items-center justify-between p-4 rounded-lg border border-border bg-background">
+                    <span className="font-medium text-foreground">Energy Savings</span>
                     <span className="text-success">-18.4%</span>
                   </div>
-                  <div className="flex items-center justify-between p-4 bg-white/20 rounded-lg">
-                    <span className="text-white font-medium">Monthly Cost</span>
-                    <span className="text-white">$8,240</span>
+                  <div className="flex items-center justify-between p-4 rounded-lg border border-border bg-background">
+                    <span className="font-medium text-foreground">Monthly Cost</span>
+                    <span className="text-foreground">$8,240</span>
                   </div>
-                  <div className="flex items-center justify-between p-4 bg-white/20 rounded-lg">
-                    <span className="text-white font-medium">Predicted Savings</span>
+                  <div className="flex items-center justify-between p-4 rounded-lg border border-border bg-background">
+                    <span className="font-medium text-foreground">Predicted Savings</span>
                     <span className="text-warning">$1,520</span>
                   </div>
                 </div>
@@ -166,26 +153,6 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Customer logos - Energy industry focus */}
-      <section className="py-16 bg-gray-50/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-gray-600 mb-12">
-            500+ facilities managers have saved millions with EnergySync's AI-powered platform.
-          </p>
-          
-          {/* Moving logo strip */}
-          <div className="relative overflow-hidden">
-            <div className="flex space-x-12 items-center justify-center grayscale opacity-60">
-              <div className="text-2xl font-bold text-gray-400">TESLA</div>
-              <div className="text-2xl font-bold text-gray-400">IKEA</div>
-              <div className="text-2xl font-bold text-gray-400">WALMART</div>
-              <div className="text-2xl font-bold text-gray-400">GOOGLE</div>
-              <div className="text-2xl font-bold text-gray-400">AMAZON</div>
-              <div className="text-2xl font-bold text-gray-400">MICROSOFT</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Product suite - Energy management focus */}
       <section className="py-24 bg-white">
@@ -298,18 +265,18 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* CTA Section - Ramp style */}
-      <section className="py-24 bg-gradient-hero">
+      {/* CTA Section - simplified, light */}
+      <section className="py-24 bg-gradient-subtle">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl font-bold text-foreground mb-6">
             Ready to cut your energy costs?
           </h2>
-          <p className="text-xl text-white/90 mb-10">
-            Join 500+ SMBs already saving with EnergySync's AI-powered platform
+          <p className="text-xl text-muted-foreground mb-10">
+            Start saving with EnergySync's AI-powered platform.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/onboarding">
-              <Button size="lg" variant="secondary" className="w-full sm:w-auto shadow-xl">
+              <Button size="lg" className="w-full sm:w-auto shadow-xl">
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
